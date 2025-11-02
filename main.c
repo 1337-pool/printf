@@ -4,8 +4,10 @@
 int main()
 {
 	int i;
-  int c = ft_printf("%u", -21);
+  int c = ft_printf("cspdiuxX%");
   //int c = 0;
-  int j = printf("\n%u\n", -21);
+  printf("\n");
+  int j = printf("cspdiuxX%");
+  printf("\n");
   printf("my %d, origin: %d", c, j);
 }

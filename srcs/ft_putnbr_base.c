@@ -46,7 +46,7 @@ int ft_putunbr(int nbr)
     return (0);
   n = nbr;
   if (n < 0)
-    return(4294967295);
+    n += 4294967296;
   if (n >= 10)
     count += ft_putunbr(n / 10);
   ft_putchar(n % 10 + '0');
