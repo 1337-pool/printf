@@ -6,11 +6,11 @@
 /*   By: mjaber <mjaber@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 18:37:03 by mjaber            #+#    #+#             */
-/*   Updated: 2025/10/31 18:48:48 by mjaber           ###   ########.fr       */
+/*   Updated: 2025/11/02 09:58:43 by mjaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include ""
+#include "printf.h"
 
 static int	ft_check_base(char *str)
 {
@@ -36,13 +36,33 @@ static int	ft_check_base(char *str)
 	return (1);
 }
 
-void	ft_putnbr_base(int nbr, char *base)
+int ft_putunbr(int nbr)
+{
+  long n;
+  unsigned int  count;
+
+  count = 0;
+  if (!nbr)
+    return (0);
+  n = nbr;
+  if (n < 0)
+    return(4294967295);
+  if (n >= 10)
+    count += ft_putunbr(n / 10);
+  ft_putchar(n % 10 + '0');
+  count++;
+  return (count);
+}
+
+int	ft_putnbr_base(int nbr, char *base)
 {
 	long	n;
 	int		base_len;
+  int count;
 
+  count = 0;
 	if (!ft_check_base(base))
-		return ;
+		return (0);
 	base_len = ft_strlen(base);
 	n = nbr;
 	if (n < 0)
@@ -51,6 +71,8 @@ void	ft_putnbr_base(int nbr, char *base)
 		n = -n;
 	}
 	if (n >= base_len)
-		ft_putnbr_base(n / base_len, base);
+		count += ft_putnbr_base(n / base_len, base);
 	ft_putchar(base[n % base_len]);
+  count++;
+  return (count);
 }

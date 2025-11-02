@@ -6,12 +6,18 @@
 /*   By: mjaber <mjaber@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 17:38:58 by mjaber            #+#    #+#             */
-/*   Updated: 2025/10/31 17:39:01 by mjaber           ###   ########.fr       */
+/*   Updated: 2025/11/02 09:46:44 by mjaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putstr(char *str)
+#include "printf.h"
+
+int	ft_putstr(char *str)
 {
+	int	i;
+	
+	i = ft_strlen(str);
 	while (*str != '\0')
 		write (1, str++, 1);
+	return (i);
 }
