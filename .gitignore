@@ -1,0 +1,7 @@
+.gitignore
+*/*.o
+*.o
+*.a
+*.out
+*.txt
+main*.c
