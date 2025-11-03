@@ -6,21 +6,21 @@
 /*   By: mjaber <mjaber@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 17:38:58 by mjaber            #+#    #+#             */
-/*   Updated: 2025/11/02 09:46:44 by mjaber           ###   ########.fr       */
+/*   Updated: 2025/11/03 14:03:15 by mjaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 int	ft_putstr(char *str)
 {
 	int	i;
 
-  if (!str)
-  {
-    write(1, "(null)", 6);
-    return (6);
-  }
+	if (!str)
+	{
+		write(1, "(null)", 6);
+		return (6);
+	}
 	i = ft_strlen(str);
 	while (*str != '\0')
 		write (1, str++, 1);

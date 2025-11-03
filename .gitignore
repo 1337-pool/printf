@@ -5,3 +5,5 @@
 *.out
 *.txt
 main*.c
+/my.git
+/prev.git

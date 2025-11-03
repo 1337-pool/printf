@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_controller.c                                    :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mjaber <mjaber@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/01 18:55:49 by mjaber            #+#    #+#             */
-/*   Updated: 2025/11/01 18:56:05 by mjaber           ###   ########.fr       */
+/*   Updated: 2025/11/03 14:05:34 by mjaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 int	ft_printf(const char *format, ...)
 {
@@ -36,12 +36,14 @@ int	ft_printf(const char *format, ...)
 			else if (*(format + 1) == 'u')
 				count += ft_putunbr(va_arg(args, unsigned int));
 			else if (*(format + 1) == 'x')
-				count += ft_putnbr_base(va_arg(args, unsigned int), "0123456789abcdef");
+				count += ft_putnbr_base(va_arg(args, unsigned int),
+						"0123456789abcdef");
 			else if (*(format + 1) == 'X')
-				count += ft_putnbr_base(va_arg(args, unsigned int), "0123456789ABCDEF");
+				count += ft_putnbr_base(va_arg(args, unsigned int),
+						"0123456789ABCDEF");
 			else if (*(format + 1) == '%')
 				count += ft_putchar('%');
-		 	format++;
+			format++;
 		}
 		else if (*format != '%')
 			count += ft_putchar(*format);

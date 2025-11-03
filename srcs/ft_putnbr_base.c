@@ -6,11 +6,11 @@
 /*   By: mjaber <mjaber@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 18:37:03 by mjaber            #+#    #+#             */
-/*   Updated: 2025/11/02 09:58:43 by mjaber           ###   ########.fr       */
+/*   Updated: 2025/11/03 14:02:47 by mjaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 static int	ft_check_base(char *str)
 {
@@ -36,41 +36,41 @@ static int	ft_check_base(char *str)
 	return (1);
 }
 
-int ft_putunbr(unsigned int nbr)
+int	ft_putunbr(unsigned int nbr)
 {
-  unsigned int  count;
+	unsigned int	count;
 
-  count = 0;
-  if (!nbr)
-  {
-    write(1, "0", 1);
-    return (1);
-  }
-  if (nbr >= 10)
-    count += ft_putunbr(nbr / 10);
-  ft_putchar(nbr % 10 + '0');
-  count++;
-  return (count);
+	count = 0;
+	if (!nbr)
+	{
+		write(1, "0", 1);
+		return (1);
+	}
+	if (nbr >= 10)
+		count += ft_putunbr(nbr / 10);
+	ft_putchar(nbr % 10 + '0');
+	count++;
+	return (count);
 }
 
 int	ft_putnbr_base(long long nbr, char *base)
 {
-	int		base_len;
-  int count;
+	int	base_len;
+	int	count;
 
-  count = 0;
+	count = 0;
 	if (!ft_check_base(base))
 		return (0);
 	base_len = ft_strlen(base);
 	if (nbr < 0)
 	{
 		ft_putchar('-');
-    count++;
+		count++;
 		nbr = -nbr;
 	}
 	if (nbr >= base_len)
 		count += ft_putnbr_base(nbr / base_len, base);
 	ft_putchar(base[nbr % base_len]);
-  count++;
-  return (count);
+	count++;
+	return (count);
 }

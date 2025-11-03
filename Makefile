@@ -1,4 +1,3 @@
-CC=clang
 CFLAGS=-Wall -Wextra -Werror -I includes
 RM=rm -f
 AR=ar -rcs

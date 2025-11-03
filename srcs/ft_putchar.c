@@ -6,14 +6,14 @@
 /*   By: mjaber <mjaber@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 17:31:03 by mjaber            #+#    #+#             */
-/*   Updated: 2025/10/31 17:38:53 by mjaber           ###   ########.fr       */
+/*   Updated: 2025/11/03 14:00:17 by mjaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 int	ft_putchar(char c)
 {
 	write(1, &c, 1);
-  	return (1);
+	return (1);
 }
