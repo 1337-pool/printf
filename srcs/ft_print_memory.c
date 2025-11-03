@@ -39,6 +39,11 @@ int	ft_print_memory(void *p)
 	int				len;
 	char			*hex;
 
+  if (!p)
+  {
+    write(1, "(nil)", 5);
+    return(5);
+  }
 	i = 31;
 	a = (unsigned long)p;
 	hex = "0123456789abcdef";

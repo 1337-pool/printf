@@ -41,7 +41,7 @@ int	ft_printf(const char *format, ...)
 				count += ft_putnbr_base(va_arg(args, unsigned int), "0123456789ABCDEF");
 			else if (*(format + 1) == '%')
 				count += ft_putchar('%');
-			format++;
+		 	format++;
 		}
 		else if (*format != '%')
 			count += ft_putchar(*format);

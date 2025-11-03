@@ -18,10 +18,10 @@
 
 int	ft_print_memory(void *p);
 int	ft_putchar(char c);
-int	ft_putnbr_base(int nbr, char *base);
+int	ft_putnbr_base(long long nbr, char *base);
 int	ft_putstr(char *str);
 int	ft_strlen(char *str);
 int ft_printf(const char *format, ...);
-int ft_putunbr(int nbr);
+int ft_putunbr(unsigned int nbr);
 
 #endif

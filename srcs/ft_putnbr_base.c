@@ -36,27 +36,25 @@ static int	ft_check_base(char *str)
 	return (1);
 }
 
-int ft_putunbr(int nbr)
+int ft_putunbr(unsigned int nbr)
 {
-  long n;
   unsigned int  count;
 
   count = 0;
   if (!nbr)
-    return (0);
-  n = nbr;
-  if (n < 0)
-    n += 4294967296;
-  if (n >= 10)
-    count += ft_putunbr(n / 10);
-  ft_putchar(n % 10 + '0');
+  {
+    write(1, "0", 1);
+    return (1);
+  }
+  if (nbr >= 10)
+    count += ft_putunbr(nbr / 10);
+  ft_putchar(nbr % 10 + '0');
   count++;
   return (count);
 }
 
-int	ft_putnbr_base(int nbr, char *base)
+int	ft_putnbr_base(long long nbr, char *base)
 {
-	long	n;
 	int		base_len;
   int count;
 
@@ -64,15 +62,15 @@ int	ft_putnbr_base(int nbr, char *base)
 	if (!ft_check_base(base))
 		return (0);
 	base_len = ft_strlen(base);
-	n = nbr;
-	if (n < 0)
+	if (nbr < 0)
 	{
 		ft_putchar('-');
-		n = -n;
+    count++;
+		nbr = -nbr;
 	}
-	if (n >= base_len)
-		count += ft_putnbr_base(n / base_len, base);
-	ft_putchar(base[n % base_len]);
+	if (nbr >= base_len)
+		count += ft_putnbr_base(nbr / base_len, base);
+	ft_putchar(base[nbr % base_len]);
   count++;
   return (count);
 }

@@ -15,7 +15,12 @@
 int	ft_putstr(char *str)
 {
 	int	i;
-	
+
+  if (!str)
+  {
+    write(1, "(null)", 6);
+    return (6);
+  }
 	i = ft_strlen(str);
 	while (*str != '\0')
 		write (1, str++, 1);
