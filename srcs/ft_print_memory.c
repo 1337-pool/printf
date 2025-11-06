@@ -47,7 +47,6 @@ int	ft_print_memory(void *p)
 	i = 31;
 	a = (unsigned long)p;
 	hex = "0123456789abcdef";
-	buf[i--] = '\n';
 	len = ft_puthex(a, buf, hex, &i);
 	buf[i--] = 'x';
 	buf[i--] = '0';
